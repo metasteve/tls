@@ -4,9 +4,8 @@
 
 # Name of your site (displayed in the header)
 name: INCD Design Journal
-url: http://metasteve.github.io/INCD-Journal
-baseurl: http://metasteve.github.io/INCD-Journal
+url: /INCD-Journal
+baseurl: /INCD-Journal
 
 # Short bio or description (displayed in the header)
 description: My Test Jekyl
-
