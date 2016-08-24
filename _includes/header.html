@@ -13,30 +13,54 @@
 }
 </style>
 
-<div class="demo-layout-transparent mdl-layout mdl-js-layout">
-  <header class="mdl-layout__header mdl-layout__header--transparent" role="banner">
-    <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <img id="logo_image" class="mdl-layout-title" src="{{ site.baseurl }}/assets/pizza_logo.png" alt="Inclusive Design Journal [Pizza Logo]">
-      <!-- <span >Inclusive Design Journal</span> -->
-      <!-- Add spacer, to align navigation to the right -->
-      <div class="mdl-layout-spacer"></div>
-      <!-- Navigation -->
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="{{ site.baseurl }}/" alt="Site Home">Home</a>
-        <a class="mdl-navigation__link" href="{{ site.baseurl }}/todo.html" alt="ToDo List">ToDo</a>
-      </nav>
-    </div>
+<div class=" mdl-layout mdl-js-layout">
+
   </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Drawer</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-    </nav>
-  </div>
-  <main class="mdl-layout__content">
+  <!-- BEGIN markup for Preference Editor -->
+	<div class="flc-prefsEditor-separatedPanel fl-prefsEditor-separatedPanel">
+    	<!-- This is the div that will contain the Preference Editor component -->
+    		<div class="flc-slidingPanel-panel flc-prefsEditor-iframe"></div>
+    		<!-- This div is for the sliding panel that shows and hides the Preference Editor controls -->
+    		<div class="fl-panelBar">
+        		<span class="fl-prefsEditor-buttons">
+            			<button id="reset" class="flc-prefsEditor-reset fl-prefsEditor-reset"><span class="fl-icon-undo"></span> Reset</button>
+            			<button id="show-hide" class="flc-slidingPanel-toggleButton fl-prefsEditor-showHide"> Show/Hide</button>
+              <!-- <paper-fab mini id="" class="flc-slidingPanel-toggleButton" icon="accessibility" ></paper-fab> -->
+
+        		</span>
+    		</div>
+	</div>
+
+
+  <!-- Main Area -->
+    <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
+      <!-- Main Toolbar -->
+      <paper-toolbar id="mainToolbar" class="tall">
+
+        <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+
+        <span class="space"></span>
+
+        <!-- Toolbar icons -->
+        <!-- <a class="mdl-navigation__link" href="{{ site.baseurl }}/" alt="Site Home">Home</a> -->
+        <a href="{{ site.baseurl }}/">        <paper-fab mini id="" icon="home" ></paper-fab>
+</a>
+
+        <paper-icon-button icon="search"></paper-icon-button>
+
+        <!-- Application name -->
+        <div class="middle middle-container">
+          <div class="app-name"><h1>Design Journal</h1></div>
+        </div>
+
+        <!-- Application sub title -->
+        <div class="bottom bottom-container">
+          <div class="bottom-title">This is an inclusive design journal developed in Jekyll and Polymer.</div>
+        </div>
+      </paper-toolbar>
+
+
+
+
   </main>
 </div>

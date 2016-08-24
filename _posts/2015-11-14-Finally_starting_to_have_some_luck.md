@@ -2,6 +2,8 @@
 layout: post
 title: Finally making some progress on this...
 published: true
+testVar: /images/projects/virtualinsanity/opening2.jpg
+
 ---
 
 

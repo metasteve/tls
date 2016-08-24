@@ -15,7 +15,7 @@
 
 		<link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 		<link rel="stylesheet" href="{{site.url}}/css/style.css">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 		    <!--
 		    	<link rel="stylesheet" href="{{site.url}}/stylesheets/styles.css">
 		    	<link rel="stylesheet" href="{{site.url}}/stylesheets/github-light.css">
@@ -38,18 +38,7 @@
 
 	<body class="fl-focus"><!-- HTML BODY -->
 
-	<!-- BEGIN markup for Preference Editor -->
-	<div class="flc-prefsEditor-separatedPanel fl-prefsEditor-separatedPanel">
-    	<!-- This is the div that will contain the Preference Editor component -->
-    		<div class="flc-slidingPanel-panel flc-prefsEditor-iframe"></div>
-    		<!-- This div is for the sliding panel that shows and hides the Preference Editor controls -->
-    		<div class="fl-panelBar">
-        		<span class="fl-prefsEditor-buttons">
-            			<button id="reset" class="flc-prefsEditor-reset fl-prefsEditor-reset"><span class="fl-icon-undo"></span> Reset</button>
-            			<button id="show-hide" class="flc-slidingPanel-toggleButton fl-prefsEditor-showHide"> Show/Hide</button>
-        		</span>
-    		</div>
-	</div>
+
 	<!-- END markup for Preference Editor -->
 
 
@@ -87,21 +76,131 @@
 
 
 
+			<style is="custom-style">
+			  paper-button.custom {
+					margin-bottom: 10px;
+					margin-top:10px;
+					padding:10px;
+					font-size: 12px;
+			    --paper-button-ink-color: var(--paper-pink-a200);
+			    /* These could also be individually defined for each of the
+			      specific css classes, but we'll just do it once as an example */
+			    --paper-button-flat-keyboard-focus: {
+			      background-color: var(--paper-pink-a200);
+			      color: white !important;
+			    };
+			    --paper-button-raised-keyboard-focus: {
+			      background-color: var(--paper-pink-a200) !important;
+			      color: white !important;
+			    };
+			  }
+			  paper-button.custom:hover {
+			    background-color: var(--paper-indigo-300);
+
+			  }
+			  paper-button.pink {
+			    color: var(--paper-pink-a200);
+
+			  }
+			  paper-button.indigo {
+			    background-color: var(--paper-indigo-500);
+			    color: white;
+			    --paper-button-raised-keyboard-focus: {
+			      background-color: var(--paper-pink-a200) !important;
+			      color: white !important;
+			    };
+			  }
+			  paper-button.green {
+			    background-color: var(--paper-green-500);
+			    color: white;
+			  }
+			  paper-button.green[active] {
+			    background-color: var(--paper-red-500);
+			  }
+			  paper-button.disabled {
+			    color: white;
+			  }
 
 
-			<br>
-			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--1-col"></div>
-				<div class="mdl-cell mdl-cell--10-col">
-					<section role="complementary">
+
+
+				.flex-horizontal-with-ratios {
+				           @apply(--layout-horizontal);
+				         }
+				         .flexchild {
+				           @apply(--layout-flex-2);
+				         }
+				         .flex2child {
+				           @apply(--layout-flex-2);
+				         }
+				         .flex3child {
+				           @apply(--layout-flex-2);
+									 @apply(--layout-justified);
+									 @apply(--layout-self-stretch);
+
+				         }
+				       }
+
+
+
+			</style>
+
+
+
+
+
+
+
+
+
+
+
+			<div class="horizontal layout wrap" >
+  <div class="flex colourR" >Alpha</div>
+  <div class="flex colourB">Beta11</div>
+  <div class="flex colourY">Gamma</div>  <div class="flex colourY">Gamma</div>
+	<div class="flex colourY">Gamma</div>
+	<div class="flex colourY">Gamma</div>
+	<div class="flex colourY">Gamma</div>
+	<div class="flex colourY">Gamma</div>
+	<div class="flex colourY">Gamma</div>
+
+  <!-- <div class="flex-2 colourG">Delta</div> -->
+</div>
+
 						<h1>Journal Entries</h1>
-				      		{% assign posts = site.posts %}
-						{% for p in posts %}
-							<!-- Accent-colored raised button with ripple -->
-							<a href="{{site.url}}{{ p.url }}"><paper-button raised>{{p.title}}</paper-button></a>
+						<div class="container horizontal layout wrap" >
 
-<!-- <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{{site.url}}{{ p.url }}">{{ p.title }}</a> -->
+
+				    {% assign posts = site.posts %}
+						{% for p in posts %}
+<div class="flex-3">
+							<!-- Accent-colored raised button with ripple -->
+							<paper-card  heading="{{p.title}}" preloadImage="true" fadeImage="true" image="{{site.url}}{{p.testVar}}">
+
+
+
+								<div class="card-content">
+									   {{ p.excerpt }}
+									 </div>
+
+
+									<div class="card-actions">
+										<paper-icon-button icon="favorite" >
+									 	Favorite
+									</paper-icon-button>
+								 	</div>
+
+
+								  <div class="card-actions">
+										<a href="{{site.url}}{{ p.url }}"><paper-button raised class="custom indigo">{{p.title}}</paper-button></a>
+								  </div>
+
+							</paper-card>
+
+</div>
 						{% endfor %}
+						  </div>
 					</section>
 				</div>
 				<div class="mdl-cell mdl-cell--1-col"></div>
@@ -109,9 +208,8 @@
 	    	</div>
     	</div>
 
-    	<br>
-    	<br>
-    	<i class="material-icons md-48">face</i>
+
+    	<!-- <i class="material-icons md-48">face</i> -->
 
 
     	{% include footer.html %} <!-- FOOTER INCLUDE -->

@@ -2,8 +2,7 @@
 layout: post
 title: "Friday The 13th, Hello World."
 published: true
-testVar: /images/projects/aurora/aurora.png
-
+testVar: /images/projects/tutu/tutu.jpeg
 ---
 
 

@@ -9,3 +9,38 @@
 .mdl-layout__header-row .mdl-navigation__link {
   color: #b02020;
 }
+
+
+.fl-prefsEditor-separatedPanel .fl-panelBar .fl-prefsEditor-buttons {
+    border-bottom: 0px solid #ccc;
+    border-left: 0px solid #ccc;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    background-color: #fff;
+    min-height: 2em;
+    margin-right: 10em;
+    display: block;
+    float: right;
+    box-shadow: none !important;
+}
+
+.fl-prefsEditor-separatedPanel .fl-panelBar .fl-prefsEditor-buttons{
+  border-bottom: 0px solid #ccc !important;
+  border-left: 0px solid #ccc !important;
+
+}
+
+
+.colourB{
+	background-color: blue !important;
+}
+.colourR{
+	background-color: red !important;
+}
+.colourG{
+	background-color: green !important;
+}
+
+.colourY{
+	background-color: yellow !important;
+}
