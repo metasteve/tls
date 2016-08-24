@@ -4,13 +4,6 @@
 <!DOCTYPE html>
 <html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml"
 	<head>
-
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>{{ page.title }} - {{ site.title }}</title>
-		<!-- <script src="{{ site.baseurl }}/bower_components/platform/platform.js"></script> -->
-
 		<title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
 		<link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
@@ -25,19 +18,19 @@
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-
+		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="shortcut icon" href="{{ site.url }}/assets/favicon.ico">
 		<link rel="icon" type="image/x-icon" href="{{ site.url }}/assets/favicon.ico">
-
+		
 		{% include prefs-includes.html %}
-
+		
 		<script type="text/javascript" src="{{ site.url }}/js/prefsEditorDemo.js"></script>
 		<script type="text/javascript" src="http://leafo.net/sticky-kit/src/jquery.sticky-kit.js"></script>
   	</head>
 
 	<body class="fl-focus"><!-- HTML BODY -->
-
+	
 	<!-- BEGIN markup for Preference Editor -->
 	<div class="flc-prefsEditor-separatedPanel fl-prefsEditor-separatedPanel">
     	<!-- This is the div that will contain the Preference Editor component -->
@@ -69,26 +62,23 @@
 	    });
 	</script>
 
-
+	
 	{% include header.html %} <!-- HEADER / BANNER INCLUDE -->
-
+	
 	<!-- Wide card with share menu button -->
 
 	<div id="content" class="site-content"> <!-- PAGE CONTENT -->
 	    	<div id="main" role="main" class="container" role="main">
 		      	<div class="flc-toc-tocContainer toc"></div> <!-- Table of Contents DIV -->
-			<br>
-
-			<paper-card heading="">
-			  <div class="card-content">{{ content }}</div>
-
-			</paper-card>
-
-
-
-
-
-
+			<br>	
+	
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--1-col"></div>
+			  	<div class="mdl-cell mdl-cell--10-col">
+					{{ content }}
+				</div>
+				<div class="mdl-cell mdl-cell--1-col"></div>
+			</div>
 			<br>
 			<div class="mdl-grid">
 				<div class="mdl-cell mdl-cell--1-col"></div>
@@ -98,9 +88,7 @@
 				      		{% assign posts = site.posts %}
 						{% for p in posts %}
 							<!-- Accent-colored raised button with ripple -->
-							<a href="{{site.url}}{{ p.url }}"><paper-button raised>{{p.title}}</paper-button></a>
-
-<!-- <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{{site.url}}{{ p.url }}">{{ p.title }}</a> -->
+				    			<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{{site.url}}{{ p.url }}">{{ p.title }}</a>
 						{% endfor %}
 					</section>
 				</div>
@@ -108,13 +96,16 @@
 			</div>
 	    	</div>
     	</div>
-
+    	
     	<br>
     	<br>
     	<i class="material-icons md-48">face</i>
 
-
+    	
     	{% include footer.html %} <!-- FOOTER INCLUDE -->
 
   	</body>
 </html>
+
+
+
