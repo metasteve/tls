@@ -1,0 +1,41 @@
+<!-- Uses a transparent header that draws on top of the layout's background -->
+
+
+<style>
+.demo-layout-transparent {
+  color: #212121;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+  your background is light. */
+  color: #212121;
+}
+
+</style>
+
+<header>
+<div class=" mdl-layout mdl-js-layout">
+
+  <!-- BEGIN markup for Preference Editor -->
+  <div class="flc-prefsEditor-separatedPanel fl-prefsEditor-separatedPanel">
+    <!-- This is the div that will contain the Preference Editor component -->
+    <div class="flc-slidingPanel-panel flc-prefsEditor-iframe"></div>
+    <!-- This div is for the sliding panel that shows and hides the Preference Editor controls -->
+    <div class="fl-panelBar">
+
+      <span class="fl-prefsEditor-buttons">
+
+        <button id="reset" class="flc-prefsEditor-reset fl-prefsEditor-reset over"></span> Reset</button>
+
+        <button id="show-hide" class="flc-slidingPanel-toggleButton fl-prefsEditor-showHide"> Show/Hide</button>
+        <!-- <paper-fab mini id="" class="flc-slidingPanel-toggleButton" icon="accessibility" ></paper-fab> -->
+
+      </span>
+    </div>
+  </div>
+</div>
+
+
+
+</header>

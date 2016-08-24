@@ -1,0 +1,17 @@
+---
+    layout: nil
+    ---
+
+    [
+    {% for post in site.posts %}
+        {
+          "title"    : "{{ post.title }}",
+          "url"     : "{{ post.url }}",
+          "color" : "{{post.color}}",
+          "pic1" : "{{post.pic1}}",
+          "date"     : "{{ post.date | date: "%B %d, %Y" }}",
+          "content"  : "{{ post.content | escape }}",
+          "content1" : "{{site.url}}{{post.url}}"
+        } {% if forloop.last %}{% else %},{% endif %}
+    {% endfor %}
+    ]

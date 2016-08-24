@@ -1,0 +1,199 @@
+---
+
+---
+<!DOCTYPE html>
+<html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml"
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{ page.title }} - {{ site.title }}</title>
+
+	<title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+
+	<link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+	<link rel="stylesheet" href="{{site.url}}/css/style.css">
+
+<!-- <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.amber-red.min.css" /> -->
+<meta name="viewport" content="width=device-width">
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="{{ site.url }}/assets/favicon.ico">
+<link rel="icon" type="image/x-icon" href="{{ site.url }}/assets/favicon.ico">
+
+{% include prefs-includes.html %}
+
+<script type="text/javascript" src="{{ site.url }}/js/prefsEditorDemo.js"></script>
+<script type="text/javascript" src="http://leafo.net/sticky-kit/src/jquery.sticky-kit.js"></script>
+
+<!--Imort Custom Styles -->
+<link rel="import" href="custom-styles.css">
+
+<link rel="import" href="animated-grid.html">
+<link rel="import" href="fullsize-page-with-card.html">
+
+<style is="custom-style">
+	body {
+		overflow: visible;
+
+		@apply(--layout-fullbleed);
+		padding: 0px !important;
+	}
+
+	neon-animated-pages {
+		height: 100%;
+	}
+
+	neon-animated-pages {
+		margin-top: 0px;
+	}
+
+	.topPad{
+		margin-top: 60px;
+	}
+	.tall{
+		margin-top: 60px;
+	}
+.title{
+overflow: visible;}
+
+.fl-prefsEditor-separatedPanel .fl-prefsEditor-reset{
+
+	text-transform: lowercase;
+font-weight: bold;
+border: 0;
+background-color: #fff;
+height: 1.8em;
+color: #2f2b2a;
+font-family: 'OpenSans', "Myriad Pro", Helvetica, Arial, sans-serif;
+font-size: 1.1em;
+/* margin-right: .5em; */
+/* margin-left: .5em; */
+width: 40%;
+align-content: center;
+/*background-color: blue;*/
+margin: 0px;
+height:40px;
+height:60px;
+}
+
+.fl-prefsEditor-separatedPanel .fl-prefsEditor-showHide{
+height:62px !important;
+		text-transform: lowercase;
+	font-weight: bold;
+	border: 0;
+	background-color: #fff;
+	height: 1.8em;
+	color: #674e00;
+	font-family: 'OpenSans', "Myriad Pro", Helvetica, Arial, sans-serif;
+	font-size: 1.1em;
+	/* margin-right: .5em; */
+	/* margin-left: .5em; */
+	width: 50%;
+	align-content: center;
+float:right;
+	background-color: #FBBC05;
+margin: 0px;
+padding-top:10px;
+padding-bottom: 10px;
+}
+
+.fl-prefsEditor-separatedPanel .fl-panelBar .fl-prefsEditor-buttons{
+height:62px !important;
+	background-color: #fff;
+min-height: 2em;
+margin-right: 0em;
+display: block;
+float: right;
+width: 100%;
+}
+.big {
+    --iron-icon-height: 32px;
+    --iron-icon-width: 32px;
+  }
+</style>
+
+</head>
+
+
+{% include header.html %} <!-- HEADER / BANNER INCLUDE -->
+
+
+
+
+
+<body>
+
+
+	<template is="dom-bind">
+
+
+		<paper-toolbar waterfall class="tall">
+		  <iron-icon class="big" icon="accessibility"></iron-icon>
+		  <div class="top title">Inclusive Design Research Journal</div>
+
+		</paper-toolbar>
+		<neon-animated-pages id="pages" selected="0">
+
+			<animated-grid on-tile-click="_onTileClick"></animated-grid>
+
+			<fullsize-page-with-card id="fullsize-page-with-card">
+			</fullsize-page-with-card>
+		</neon-animated-pages>
+		<!-- <iron-image id="mainPhoto" style="width:100%; height:100%;" preload fade sizing="cover" src="http://lorempixel.com/1200/800"></iron-image> -->
+
+
+	</template>
+
+	<script>
+
+		var scope = document.querySelector('template[is="dom-bind"]');
+
+		scope._onTileClick = function(event) {
+			this.$['fullsize-page-with-card'].color = event.detail.data.color;
+			this.$['fullsize-page-with-card'].value = event.detail.data.value;
+			this.$['fullsize-page-with-card'].id = event.detail.data.id;
+			this.$['fullsize-page-with-card'].pic = event.detail.data.pic1;
+
+
+			this.$.pages.selected = 1;
+		};
+
+		scope._onFullsizeClick = function(event) {
+			this.$.pages.selected = 1;
+		};
+
+
+	document.addEventListener('showPage', function(){
+		// alert("Hello! I am an alert box!!1");
+
+pages.selected = 0;
+
+
+});
+
+	</script>
+
+</body>
+</html>
+
+
+<!-- The page-wide UI Enhancer needs to be initialized right away -->
+	<script type="text/javascript">
+	$(document).ready(function () {
+		var prefsEditor = fluid.prefs.create(".flc-prefsEditor-separatedPanel", {
+			build: {
+				gradeNames: [
+					"fluid.prefs.auxSchema.starter", // this will add the starter set
+					"demo.prefsEditor.auxSchema.simplify", // this will add the simplify adjuster and enactor
+					"demo.prefsEditor.progressiveEnhancement" // progressive enhancment
+				],
+				primarySchema: demo.prefsEditor.primarySchema
+			}
+		});
+	});
+	</script>

@@ -1,0 +1,121 @@
+
+<paper-toolbar id="mainToolbar" class="tall">
+
+	<paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+
+	<span class="flex"></span>
+
+	<!-- Toolbar icons -->
+	<!-- <a class="mdl-navigation__link" href="{{ site.baseurl }}/" alt="Site Home">Home</a> -->
+	<a href="{{ site.baseurl }}/">        <paper-fab mini id="" icon="home" ></paper-fab>
+	</a>
+
+	<paper-icon-button icon="search"></paper-icon-button>
+
+	<!-- Application name -->
+	<div class="middle middle-container">
+		<div class="app-name"><h1>Design Journal</h1></div>
+	</div>
+
+	<!-- Application sub title -->
+	<div class="bottom bottom-container">
+		<div class="bottom-title">This is an inclusive design journal developed in Jekyll and Polymer.</div>
+	</div>
+
+</paper-toolbar>
+
+
+
+
+
+
+
+
+
+
+<!--
+		    <link rel="import" href="full-page.html">
+
+		    <style is="custom-style">
+		      body {
+		        overflow: hidden;
+		        @apply(--layout-fullbleed);
+		      }
+		      full-page {
+		        @apply(--layout-fit);
+		      }
+		    </style>
+		  </head>
+		  <body>
+
+		    <full-page></full-page>
+
+		    <script>
+
+		      document.addEventListener('WebComponentsReady', function() {
+		        document.querySelector('full-page').show();
+		      });
+
+		    </script>
+
+		  </body>
+		</html>
+ -->
+
+
+
+
+<div class="horizontal layout " >
+	<div class="flex-3 horizontal layout wrap colourR" >
+		<div class="red1" >cats!!!!!!	</div>
+		<div class="red1" >cats	</div>
+		<div class="red1" >cats	</div>
+		<div class="red1" >cats	</div>
+		<div class="red1" >cats	</div>
+
+
+	</div>
+	<div class="flex-2 wrap colourB">Beta11</div>
+	<div class="flex-2 wrap colourY">Gamma</div>
+	<!-- <div class="flex-2 colourG">Delta</div> -->
+</div>
+
+<h1>Journal Entries</h1>
+<div class="container horizontal layout wrap" >
+
+
+	{% assign posts = site.posts %}
+	{% for p in posts %}
+	<div class="flex-3">
+		<!-- Accent-colored raised button with ripple -->
+		<paper-card  heading="{{p.title}}" preloadImage="true" fadeImage="true" image="{{site.url}}{{p.testVar}}">
+
+
+
+			<div class="card-content">
+				{{ p.excerpt }}
+			</div>
+
+
+			<div class="card-actions">
+				<paper-icon-button icon="favorite" >
+					Favorite
+				</paper-icon-button>
+			</div>
+
+
+			<div class="card-actions">
+				<a href="{{site.url}}{{ p.url }}"><paper-button raised class="custom indigo">{{p.title}}</paper-button></a>
+			</div>
+
+		</paper-card>
+
+	</div>
+	{% endfor %}
+</div>
+</section>
+</div>
+<div class="mdl-cell mdl-cell--1-col"></div>
+</div>
+</div>
+</div>

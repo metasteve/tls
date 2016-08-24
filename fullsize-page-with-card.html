@@ -1,0 +1,318 @@
+---
+
+---
+
+<!--
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="shared-styles.html">
+
+<!-- <link rel="import" href="[[id]]"> -->
+
+
+<dom-module class="topperID" id="fullsize-page-with-card">
+  <template>
+
+
+
+
+    <style include="shared-styles"></style>
+    <style>
+
+    :host {
+         display: block;
+       }
+       .fixed {
+         position: fixed;
+         top: 0;
+         left: 0;
+         height: 100vh;
+         width: 100vw;
+         @apply(--layout-horizontal);
+   @apply(--layout-center-justified);
+       }
+       .topperID{
+         /*@apply(--layout-horizontal);
+   @apply(--layout-center-justified);*/
+       }
+       .card {
+         position: fixed;
+         top:calc(5% );
+         left:calc(5% );
+          height:  calc(90% );
+         width: calc(90% );
+         /*padding:20px;*/
+         /*@apply(--layout-vertical);*/
+
+         @apply(--layout-center-center);
+
+       }
+
+
+       body, html {
+           overflow-x: hidden;
+           overflow-y: auto;
+       }
+    </style>
+
+    <style is="custom-style">
+  .big {
+    float:right;
+    margin-right:-20px;
+    margin-top:-20px;
+    --iron-icon-height: 40px;
+    --iron-icon-width: 40px;
+  }
+  </style>
+
+  <style is="custom-style">
+
+  paper-icon-button.giant {
+    width: 100px;
+    height: 100px;
+
+  }
+
+  .medium-tall2{
+    opacity: .5;
+    background-color: black;
+
+  }
+  .title{
+    margin-left: 10px !important;
+  }
+  .top{
+    padding-top:16px !important;
+  }
+.card2{
+  margin-top: -200px;
+  padding:30px;
+
+  padding-top: 200px;
+  color: white;
+  opacity: .5;
+}
+
+.border1{
+  width:100%;
+  top:0;
+}
+
+
+
+</style>
+
+
+
+<style is="custom-style">
+
+paper-fab.blue {
+  /*width:200px;*/
+  /*background-color: var(--paper-light-blue-500);*/
+    --paper-fab-background: var(--paper-light-blue-500);
+    --paper-fab-keyboard-focus-background: var(--paper-light-blue-900);
+
+  }
+paper-fab.yellow {
+    --paper-fab-background: var(--paper-yellow-500);
+    --paper-fab-keyboard-focus-background: var(--paper-yellow-900);
+  }
+  </style>
+
+
+
+
+
+
+    <div id="fixed" class$="[[_computeFixedBackgroundClass(color)]]"></div>
+
+
+    <div id="card" class$="[[_computeCardClass(color)]]">
+      <paper-fab id="backButton" class$="big giant [[_computeButtonBackgroundClass(color)]]" icon="clear" on-click="_showHome"></paper-fab>
+
+
+      <div id="mainPhoto">
+
+    <paper-card  class="border1 transperant flex-1 vertical"  heading="  [[value]]" image="[[pic]]">
+      <div  class="card-content flex">
+        [[color]]
+
+      </div>
+
+      <div class$="[[_computeTileClass(item.color)]] card-actions flex">
+        <paper-icon-button icon="favorite" title="Heart" class="pink"></paper-icon-button>
+        <paper-icon-button icon="assignment" title="Assignment" class="pink"></paper-icon-button>
+        <paper-icon-button icon="check-circle" title="Checked" class=$"[[_computeTileClass(item.color)]]"></paper-icon-button>
+        <paper-icon-button icon="create" title="Edit" class="pink" style="margin-left: auto;"></paper-icon-button>
+
+
+
+
+      </div>
+
+    </paper-card>
+
+            <!-- <template is="juicy-html" id="loadedContent" content$="{{site.url}}[[_computeURL(id)]]"></template> -->
+      </div>
+
+
+</paper-toolbar>
+
+  </template>
+
+
+
+
+</dom-module>
+
+
+
+<script>
+
+
+  Polymer({
+
+    is: 'fullsize-page-with-card',
+
+    behaviors: [
+        Polymer.NeonSharedElementAnimatableBehavior,
+        Polymer.NeonAnimationRunnerBehavior
+    ],
+
+    properties: {
+
+      color: {
+        type: String
+      },
+       color2: {
+          type: String
+        },
+      value: {
+        type: Number
+      },
+
+      sharedElements: {
+        type: Object,
+        value: function() {
+          return {
+            'hero': this.$.card,
+            'ripple': this.$.fixed
+          }
+        }
+      },
+
+      animationConfig: {
+        type: Object,
+        value: function() {
+          return {
+            'entry': [{
+              name: 'ripple-animation',
+              id: 'ripple',
+              toPage: this,
+            }, {
+              name: 'hero-animation',
+              id: 'hero',
+              toPage: this,
+              timing: {
+                delay: 150
+              },
+              name: 'hero-animation',
+                id: 'hero',
+                toPage: this,
+                timing: {
+                  delay: 150
+                }
+              },
+              {
+              name: 'fade-in-animation',
+              node: this.$.mainPhoto,
+              timing: {
+                delay: 500, duration: 1500
+              }
+            },
+            {
+            name: 'fade-in-animation0',
+            node: this.$.topBar,
+            timing: {
+            delay: 00, duration: 1000
+            }
+            },
+            {
+            name: 'fade-in-animation',
+            node: this.$.backButton,
+            timing: {
+            delay: 1500, duration: 400
+            }}
+
+
+          ],
+            'exit': [{
+              name: 'fade-out-animation',
+              node: this.$.fixed
+            }, {
+              name: 'transform-animation',
+              transformFrom: 'none',
+              transformTo: 'translate(0px,-200vh) scale(0.9,1)',
+              node: this.$.card
+            }]
+          }
+        }
+      }
+
+    },
+    listeners: {
+  // this event is fired when the animation finishes
+  "ripple-animation": "animationComplete"
+},
+attached: function() {
+  // this.importHref([[id]], function() {})
+
+  },
+animationComplete: function() {
+  alert("Hello! I am an alert box!!1");
+},
+
+    _computeCardClass: function(color) {
+      var cls = 'card';
+      if (color) {
+        cls += ' ' + color + '-300';
+      }
+      return cls;
+    },
+    _computeURL: function(id) {
+      var cls = [[id]];
+      // if (id) {
+      //   cls += ' ' + color + '-300';
+      // }
+      return cls;
+    },
+
+    _computeFixedBackgroundClass: function(color) {
+      var cls = 'fixed';
+      if (color) {
+        cls += ' ' + color + '-100';
+      }
+      return cls;
+    },
+    _computeButtonBackgroundClass: function(color) {
+      var cls = '';
+      if (color) {
+        cls += '' + color + '';
+      }
+      return cls;
+    },
+    _showHome: function (){
+
+      this.fire('showPage');
+
+    }
+
+  });
+
+</script>

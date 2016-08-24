@@ -1,0 +1,30 @@
+---
+<!-- layout: default -->
+---
+
+<style>
+.mainPhoto1{
+  width:100%;
+  height:200px;
+}
+article{
+  padding:40px;
+}
+</style>
+
+
+<article>
+  <header>
+    <h1>{{ page.title }}</h1>
+  </header>
+
+  <div class="mainPhoto1">
+  <iron-image id="mainPhoto" class="grey" style="width:100%; height:100%; background-color: lightgray;" sizing="cover" preload fade src="{{page.pic1}}"></iron-image>
+  </div>
+
+
+  {{ content }}
+  <footer>
+    <p><small>{{ site.name }}, {{ page.date | date_to_string }}</small></p>
+  </footer>
+</article>

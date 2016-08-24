@@ -1,0 +1,67 @@
+<style is="custom-style">
+paper-button.custom {
+	margin-bottom: 10px;
+	margin-top:10px;
+	padding:10px;
+	font-size: 12px;
+	--paper-button-ink-color: var(--paper-pink-a200);
+	/* These could also be individually defined for each of the
+	specific css classes, but we'll just do it once as an example */
+	--paper-button-flat-keyboard-focus: {
+		background-color: var(--paper-pink-a200);
+		color: white !important;
+	};
+	--paper-button-raised-keyboard-focus: {
+		background-color: var(--paper-pink-a200) !important;
+		color: white !important;
+	};
+}
+paper-button.custom:hover {
+	background-color: var(--paper-indigo-300);
+
+}
+paper-button.pink {
+	color: var(--paper-pink-a200);
+
+}
+paper-button.indigo {
+	background-color: var(--paper-indigo-500);
+	color: white;
+	--paper-button-raised-keyboard-focus: {
+		background-color: var(--paper-pink-a200) !important;
+		color: white !important;
+	};
+}
+paper-button.green {
+	background-color: var(--paper-green-500);
+	color: white;
+}
+paper-button.green[active] {
+	background-color: var(--paper-red-500);
+}
+paper-button.disabled {
+	color: white;
+}
+
+
+
+
+.flex-horizontal-with-ratios {
+	@apply(--layout-horizontal);
+}
+.flexchild {
+	@apply(--layout-flex-2);
+}
+.flex2child {
+	@apply(--layout-flex-2);
+}
+.flex3child {
+	@apply(--layout-flex-2);
+	@apply(--layout-justified);
+	@apply(--layout-self-stretch);
+
+}
+}
+
+
+</style>

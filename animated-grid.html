@@ -1,0 +1,401 @@
+---
+
+---
+
+
+<!--
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="animated-grid">
+  <template>
+  <style include="shared-styles"></style>
+  <style>
+.toolbar-tools.paper-toolbar .title{
+  font-size: 110% !important;
+}
+  :host {
+    display: flex;
+    flex-wrap:wrap;
+
+    background: #000;
+  }
+
+  .tile {
+    /*display: flex;*/
+    /*float: left;*/
+    /*vertical-align: bottom;*/
+    /*width: calc(100% / 6);
+
+    height: calc(100% / 2.99);*/
+    /*max-width: 550px;
+    min-width: 300px;
+    max-height: 300px;*/
+    flex: 25% ;
+
+    /*bottom:0;*/
+    /*@apply(--paper-font-title);*/
+    /*@apply(--layout-vertical);*/
+    /*@apply(--layout-center-center);*/
+  }
+
+  .tile:nth-of-type(1) {
+    /*flex: 1 1;*/
+    /*min-width: calc(100% / 2);
+    max-height: 600px;*/
+
+    /*height: calc(100% / 2.999 *2);*/
+    flex: 50% ;
+  }
+
+  .tile:nth-of-type(2) {
+    /*width: calc(100% / 3);*/
+    flex: 50% ;
+  }
+
+  .tile:nth-of-type(5) {
+    /*width: calc(100% / 3);
+    height: calc(100% / 2.99);*/
+  }
+  .tile:nth-of-type(7) {
+    /*width: calc(100% / 6);
+    height: calc(100% / 2.99);*/
+  }
+  .tile:nth-of-type(8) {
+    /*width: calc(100% / 1.5);
+    height: calc(100% / 2.99);*/
+  }
+  @media all and (max-width: 1280px) {
+
+    .tile {
+      /*display: block;
+      float: left;
+      vertical-align: bottom;
+      width: calc(100% /6);
+      height: calc(100% / 2.99);
+      bottom:0;
+      @apply(--layout-vertical);*/
+      flex:50%;
+    }
+
+    .tile:nth-of-type(1) {
+      /*width: calc(100% /2);
+      height: calc(100% / 3 *2);*/
+    }
+
+    .tile:nth-of-type(4) {
+      /*width: calc(100% / 6);*/
+    }
+
+    .tile:nth-of-type(5) {
+      /*width: calc(100% / 2);
+      height: calc(100% / 3);*/
+    }
+    .tile:nth-of-type(7) {
+      /*width: calc(100% / 3);
+      height: calc(100% / 2.99);*/
+    }
+    .tile:nth-of-type(8) {
+      /*width: calc(100% / 2);
+      height: calc(100% / 2.99);*/
+    }
+    .tile:nth-of-type(9) {
+      /*width: calc(100% / 2);
+      height: calc(100% / 2.99);*/
+    }
+  }
+
+
+
+
+  @media all and (max-width: 1024px) {
+
+    .tile {
+      /*display: block;
+      float: left;
+      vertical-align: bottom;
+      width: calc(100% /2);
+      height: calc(100% / 2.99);
+      bottom:0;
+      @apply(--layout-vertical);*/
+      flex: 50%;
+    }
+
+    .tile:nth-of-type(1) {
+      /*width: calc(100% /2);
+      height: calc(100% / 3 *2);*/
+    }
+
+    .tile:nth-of-type(4) {
+      /*width: calc(100%);*/
+    }
+
+    .tile:nth-of-type(5) {
+      /*width: calc(100% / 2);
+      height: calc(100% / 3);*/
+    }
+    .tile:nth-of-type(7) {
+      /*width: calc(100% / 2);
+      height: calc(100% / 2.99);*/
+    }
+    .tile:nth-of-type(8) {
+      /*width: calc(100% / 2);
+      height: calc(100% / 2.99);*/
+    }
+    .tile:nth-of-type(9) {
+      /*width: calc(100% / 2);
+      height: calc(100% / 2.99);*/
+    }
+  }
+
+
+
+
+  @media all and (max-width: 640px) {
+
+    .tile {
+      flex: 100%;
+      /*display: block;
+      float: left;
+      vertical-align: bottom;
+      width: calc(100% );
+      height: calc(100% / 2.99);
+      bottom:0;
+      @apply(--layout-vertical);*/
+    }
+
+    .tile:nth-of-type(1) {
+      /*width: calc(100% );
+      height: calc(100% / 3 *2);*/
+          flex: 100%;
+    }
+
+    .tile:nth-of-type(2) {
+      /*width: calc(100% / 2);*/
+          flex: 100%;
+    }
+
+    .tile:nth-of-type(5) {
+      /*width: calc(100% / 2);
+      height: calc(100% / 3);*/
+    }
+    .tile:nth-of-type(7) {
+      /*width: calc(100% / 2);
+      height: calc(100% / 2.99);*/
+    }
+    .tile:nth-of-type(8) {
+      /*width: calc(100% / 2);
+      height: calc(100% / 2.99);*/
+    }
+    .tile:nth-of-type(9) {
+      /*width: calc(100% / 2);
+      height: calc(100% / 2.99);*/
+    }
+    .tile:nth-of-type(11) {
+      flex:100%;
+      /*width: calc(100% / 2);
+      height: calc(100% / 2.99);*/
+    }
+}
+
+  .fit {
+    @apply(--layout-fit);
+  }
+  .title{
+  }
+
+  .transperant img{
+    opacity: .1;
+  }
+
+
+  </style>
+
+
+
+  <!-- {% assign posts = site.posts %}
+  {% for p in posts %}
+
+
+  <paper-card  class="transperant"  heading="{{p.title}}" image="{{p.pic1}}">
+    <div  class="card-content">
+        {{ p.excerpt }}
+    </div>
+
+    <div class$="[[_computeTileClass({{p.color}})]] card-actions">
+      <paper-icon-button icon="favorite" title="Heart" class="pink"></paper-icon-button>
+      <paper-icon-button icon="assignment" title="Assignment" class="pink"></paper-icon-button>
+      <paper-icon-button icon="check-circle" title="Checked" class=$"[[_computeTileClass(item.color)]]"></paper-icon-button>
+      <paper-icon-button icon="create" title="Edit" class="pink" style="margin-left: auto;"></paper-icon-button>
+  </div>
+
+  </paper-card>
+  {% endfor %} -->
+
+
+  <!-- href="{{site.url}}{{ p.url }} -->
+
+  <template is="dom-repeat" items="[[config]]" class="vertical">
+
+
+    <div class$="[[_computeTileClass(item.color)]] vertical flex layout-vertical  ">
+
+
+      <paper-card  class="transperant flex-1 vertical"  heading="[[item.value]]" image="[[item.pic1]]">
+        <div  class="card-content flex">
+            [[item.subTitle]]
+        </div>
+
+        <div class$="[[_computeTileClass(item.color)]] card-actions flex">
+          <paper-icon-button icon="favorite" title="Heart" class="pink"></paper-icon-button>
+          <paper-icon-button icon="assignment" title="Assignment" class="pink"></paper-icon-button>
+          <paper-icon-button icon="check-circle" title="Checked" class=$"[[_computeTileClass(item.color)]]"></paper-icon-button>
+          <paper-icon-button icon="create" title="Edit" class="pink" style="margin-left: auto;"></paper-icon-button>
+
+
+
+
+        </div>
+
+      </paper-card>
+
+    </div>
+
+  </template>
+
+  <!--
+        <paper-card image="[[item.pic1]]" class$="[[_computeTileClass(item.color)]]">
+      <div class="card-content">[[item.value]]</div>
+    </paper-card> -->
+
+
+
+        <!--
+        <paper-material elevation="1" id="topBar" class="topInfo">
+          <div class="topInfoText">[[item.value]]</div>
+          <div class="topInfoText2">[[item.subTitle]]</div>
+        </paper-material>
+
+        <iron-image id="mainPhoto" class="grey" style="width:100%; height:100%; background-color: lightgray;" sizing="cover" preload fade src="[[item.pic1]]"></iron-image> -->
+
+
+
+
+
+</template>
+
+</dom-module>
+
+<script>
+
+// postArray = [];
+
+</script>
+<!--
+{% assign posts = site.posts %}
+{% for p in posts %}
+
+{{p.title}}
+image="{{site.url}}{{p.testVar}}
+{{ p.excerpt }}
+href="{{site.url}}{{ p.url }}
+
+
+
+{% endfor %} -->
+
+<!-- <iron-ajax
+auto
+url="site.json"
+handle-as="json"
+last-response="{{jsondata}}">
+</iron-ajax> -->
+
+
+<script>
+
+
+
+Polymer({
+
+  is: 'animated-grid',
+
+  behaviors: [
+    Polymer.NeonSharedElementAnimatableBehavior
+  ],
+
+  properties: {
+
+    config: {
+      type: Array,
+      value: function() {
+        return [
+          {% assign posts = site.posts %}
+          {% for p in posts %}
+          {value: '{{p.title}}', subTitle:'{{p.subTitle}}',color: '{{p.color}}', pic1: '{{p.pic1}}', id:'{{p.url}}'},
+          {% endfor %}
+        ]
+      }
+    },
+
+    animationConfig: {
+      type: Object,
+      value: function() {
+        return {
+          'exit': [{
+            name: 'ripple-animation',
+            id: 'ripple',
+            fromPage: this
+          }, {
+            name: 'hero-animation',
+            id: 'hero',
+            fromPage: this
+          }]
+        }
+      }
+    }
+
+  },
+
+  listeners: {
+    click: '_onClick'
+  },
+
+  _computeTileClass: function(color) {
+    return 'tile ' + color + '-300';
+  },
+
+  _onClick: function(event) {
+    $('html,body').stop(true, true).delay(300).animate({scrollTop:'0px'}, 400);
+
+    var target = event.target;
+
+    while (target !== this && !target._templateInstance) {
+      target = target.parentNode;
+    }
+
+    // configure the page animation
+    this.sharedElements = {
+      'hero': target,
+      'ripple': target
+    };
+    this.animationConfig['exit'][0].gesture = {
+      x: event.x || event.pageX,
+      y: event.y || event.pageY
+    };
+
+    this.fire('tile-click', {
+      tile: target,
+      data: target._templateInstance.item
+    });
+  }
+
+});
+
+</script>
