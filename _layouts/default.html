@@ -3,139 +3,118 @@
 ---
 <!DOCTYPE html>
 <html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml"
-<head>
+	<head>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{{ page.title }} - {{ site.title }}</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>{{ page.title }} - {{ site.title }}</title>
+		<!-- <script src="{{ site.baseurl }}/bower_components/platform/platform.js"></script> -->
 
-	<title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+		<title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
-	<link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-	<link rel="stylesheet" href="{{site.url}}/css/style.css">
+		<link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+		<link rel="stylesheet" href="{{site.url}}/css/style.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		    <!--
+		    	<link rel="stylesheet" href="{{site.url}}/stylesheets/styles.css">
+		    	<link rel="stylesheet" href="{{site.url}}/stylesheets/github-light.css">
+		    -->
+		<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.amber-red.min.css" />
+		<meta name="viewport" content="width=device-width">
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 
-<!-- <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.amber-red.min.css" /> -->
-<meta name="viewport" content="width=device-width">
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="shortcut icon" href="{{ site.url }}/assets/favicon.ico">
+		<link rel="icon" type="image/x-icon" href="{{ site.url }}/assets/favicon.ico">
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="shortcut icon" href="{{ site.url }}/assets/favicon.ico">
-<link rel="icon" type="image/x-icon" href="{{ site.url }}/assets/favicon.ico">
+		{% include prefs-includes.html %}
 
-{% include prefs-includes.html %}
+		<script type="text/javascript" src="{{ site.url }}/js/prefsEditorDemo.js"></script>
+		<script type="text/javascript" src="http://leafo.net/sticky-kit/src/jquery.sticky-kit.js"></script>
+  	</head>
 
-<script type="text/javascript" src="{{ site.url }}/js/prefsEditorDemo.js"></script>
-<script type="text/javascript" src="http://leafo.net/sticky-kit/src/jquery.sticky-kit.js"></script>
+	<body class="fl-focus"><!-- HTML BODY -->
 
-<!--Imort Custom Styles -->
-<link rel="import" href="custom-styles.css">
-
-<link rel="import" href="animated-grid.html">
-<link rel="import" href="fullsize-page-with-card.html">
-
-<style is="custom-style">
-	body {
-		overflow: visible;
-
-		@apply(--layout-fullbleed);
-		padding: 0px !important;
-	}
-
-	neon-animated-pages {
-		height: 100%;
-	}
-
-	neon-animated-pages {
-		margin-top: 0px;
-	}
-
-	.topPad{
-		margin-top: 60px;
-	}
-	.tall{
-		margin-top: 80px;
-	}
+	<!-- BEGIN markup for Preference Editor -->
+	<div class="flc-prefsEditor-separatedPanel fl-prefsEditor-separatedPanel">
+    	<!-- This is the div that will contain the Preference Editor component -->
+    		<div class="flc-slidingPanel-panel flc-prefsEditor-iframe"></div>
+    		<!-- This div is for the sliding panel that shows and hides the Preference Editor controls -->
+    		<div class="fl-panelBar">
+        		<span class="fl-prefsEditor-buttons">
+            			<button id="reset" class="flc-prefsEditor-reset fl-prefsEditor-reset"><span class="fl-icon-undo"></span> Reset</button>
+            			<button id="show-hide" class="flc-slidingPanel-toggleButton fl-prefsEditor-showHide"> Show/Hide</button>
+        		</span>
+    		</div>
+	</div>
+	<!-- END markup for Preference Editor -->
 
 
-</style>
-
-</head>
-
-
-{% include header.html %} <!-- HEADER / BANNER INCLUDE -->
-
-
-
-
-
-<body>
-
-
-	<template is="dom-bind">
-
-
-		<paper-toolbar class="tall">
-		  <paper-icon-button icon="menu"></paper-icon-button>
-		  <div class="top title">Middle Title</div>
-
-		</paper-toolbar>
-		<neon-animated-pages id="pages" selected="0">
-
-			<animated-grid on-tile-click="_onTileClick"></animated-grid>
-
-			<fullsize-page-with-card id="fullsize-card">
-			</fullsize-page-with-card>
-		</neon-animated-pages>
-		<!-- <iron-image id="mainPhoto" style="width:100%; height:100%;" preload fade sizing="cover" src="http://lorempixel.com/1200/800"></iron-image> -->
-
-
-	</template>
-
-	<script>
-
-		var scope = document.querySelector('template[is="dom-bind"]');
-
-		scope._onTileClick = function(event) {
-			this.$['fullsize-card'].color = event.detail.data.color;
-			this.$['fullsize-card'].value = event.detail.data.value;
-
-			this.$.pages.selected = 1;
-		};
-
-		scope._onFullsizeClick = function(event) {
-			this.$.pages.selected = 1;
-		};
-
-
-	document.addEventListener('showPage', function(){
-		// alert("Hello! I am an alert box!!1");
-
-pages.selected = 0;
-
-
-});
-
-	</script>
-
-</body>
-</html>
-
-
-<!-- The page-wide UI Enhancer needs to be initialized right away -->
+	<!-- The page-wide UI Enhancer needs to be initialized right away -->
 	<script type="text/javascript">
-	$(document).ready(function () {
-		var prefsEditor = fluid.prefs.create(".flc-prefsEditor-separatedPanel", {
-			build: {
-				gradeNames: [
-					"fluid.prefs.auxSchema.starter", // this will add the starter set
-					"demo.prefsEditor.auxSchema.simplify", // this will add the simplify adjuster and enactor
-					"demo.prefsEditor.progressiveEnhancement" // progressive enhancment
-				],
-				primarySchema: demo.prefsEditor.primarySchema
-			}
-		});
-	});
+	    $(document).ready(function () {
+	        var prefsEditor = fluid.prefs.create(".flc-prefsEditor-separatedPanel", {
+	            build: {
+	                gradeNames: [
+	                    "fluid.prefs.auxSchema.starter", // this will add the starter set
+	                    "demo.prefsEditor.auxSchema.simplify", // this will add the simplify adjuster and enactor
+	                    "demo.prefsEditor.progressiveEnhancement" // progressive enhancment
+	                ],
+	                primarySchema: demo.prefsEditor.primarySchema
+	            }
+	        });
+	    });
 	</script>
+
+
+	{% include header.html %} <!-- HEADER / BANNER INCLUDE -->
+
+	<!-- Wide card with share menu button -->
+
+	<div id="content" class="site-content"> <!-- PAGE CONTENT -->
+	    	<div id="main" role="main" class="container" role="main">
+		      	<div class="flc-toc-tocContainer toc"></div> <!-- Table of Contents DIV -->
+			<br>
+
+			<paper-card heading="">
+			  <div class="card-content">{{ content }}</div>
+
+			</paper-card>
+
+
+
+
+
+
+			<br>
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--1-col"></div>
+				<div class="mdl-cell mdl-cell--10-col">
+					<section role="complementary">
+						<h1>Journal Entries</h1>
+				      		{% assign posts = site.posts %}
+						{% for p in posts %}
+							<!-- Accent-colored raised button with ripple -->
+							<a href="{{site.url}}{{ p.url }}"><paper-button raised>{{p.title}}</paper-button></a>
+
+<!-- <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{{site.url}}{{ p.url }}">{{ p.title }}</a> -->
+						{% endfor %}
+					</section>
+				</div>
+				<div class="mdl-cell mdl-cell--1-col"></div>
+			</div>
+	    	</div>
+    	</div>
+
+    	<br>
+    	<br>
+    	<i class="material-icons md-48">face</i>
+
+
+    	{% include footer.html %} <!-- FOOTER INCLUDE -->
+
+  	</body>
+</html>

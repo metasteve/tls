@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Post 1"
+title: "Friday The 13th, Hello World."
 published: true
-pic1: http://lorempixel.com/1200/800
-color: "blue"
 ---
 
 
