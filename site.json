@@ -10,8 +10,7 @@
           "color" : "{{post.color}}",
           "pic1" : "{{post.pic1}}",
           "date"     : "{{ post.date | date: "%B %d, %Y" }}",
-          "content"  : "{{ post.content | escape }}",
-          "content1" : "{{site.url}}{{post.url}}"
+          "content"  : "{{ post.content | escape }}"
         } {% if forloop.last %}{% else %},{% endif %}
     {% endfor %}
     ]

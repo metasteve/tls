@@ -56,65 +56,10 @@
 		margin-top: 60px;
 	}
 	.tall{
-		margin-top: 60px;
+		margin-top: 80px;
 	}
-.title{
-overflow: visible;}
 
-.fl-prefsEditor-separatedPanel .fl-prefsEditor-reset{
 
-	text-transform: lowercase;
-font-weight: bold;
-border: 0;
-background-color: #fff;
-height: 1.8em;
-color: #2f2b2a;
-font-family: 'OpenSans', "Myriad Pro", Helvetica, Arial, sans-serif;
-font-size: 1.1em;
-/* margin-right: .5em; */
-/* margin-left: .5em; */
-width: 40%;
-align-content: center;
-/*background-color: blue;*/
-margin: 0px;
-height:40px;
-height:60px;
-}
-
-.fl-prefsEditor-separatedPanel .fl-prefsEditor-showHide{
-height:62px !important;
-		text-transform: lowercase;
-	font-weight: bold;
-	border: 0;
-	background-color: #fff;
-	height: 1.8em;
-	color: #674e00;
-	font-family: 'OpenSans', "Myriad Pro", Helvetica, Arial, sans-serif;
-	font-size: 1.1em;
-	/* margin-right: .5em; */
-	/* margin-left: .5em; */
-	width: 50%;
-	align-content: center;
-float:right;
-	background-color: #FBBC05;
-margin: 0px;
-padding-top:10px;
-padding-bottom: 10px;
-}
-
-.fl-prefsEditor-separatedPanel .fl-panelBar .fl-prefsEditor-buttons{
-height:62px !important;
-	background-color: #fff;
-min-height: 2em;
-margin-right: 0em;
-display: block;
-float: right;
-width: 100%;
-}
-.big {
-    --iron-icon-height: 32px;
-    --iron-icon-width: 32px;
-  }
 </style>
 
 </head>
@@ -132,16 +77,16 @@ width: 100%;
 	<template is="dom-bind">
 
 
-		<paper-toolbar waterfall class="tall">
-		  <iron-icon class="big" icon="accessibility"></iron-icon>
-		  <div class="top title">Inclusive Design Research Journal</div>
+		<paper-toolbar class="tall">
+		  <paper-icon-button icon="menu"></paper-icon-button>
+		  <div class="top title">Middle Title</div>
 
 		</paper-toolbar>
 		<neon-animated-pages id="pages" selected="0">
 
 			<animated-grid on-tile-click="_onTileClick"></animated-grid>
 
-			<fullsize-page-with-card id="fullsize-page-with-card">
+			<fullsize-page-with-card id="fullsize-card">
 			</fullsize-page-with-card>
 		</neon-animated-pages>
 		<!-- <iron-image id="mainPhoto" style="width:100%; height:100%;" preload fade sizing="cover" src="http://lorempixel.com/1200/800"></iron-image> -->
@@ -154,11 +99,8 @@ width: 100%;
 		var scope = document.querySelector('template[is="dom-bind"]');
 
 		scope._onTileClick = function(event) {
-			this.$['fullsize-page-with-card'].color = event.detail.data.color;
-			this.$['fullsize-page-with-card'].value = event.detail.data.value;
-			this.$['fullsize-page-with-card'].id = event.detail.data.id;
-			this.$['fullsize-page-with-card'].pic = event.detail.data.pic1;
-
+			this.$['fullsize-card'].color = event.detail.data.color;
+			this.$['fullsize-card'].value = event.detail.data.value;
 
 			this.$.pages.selected = 1;
 		};

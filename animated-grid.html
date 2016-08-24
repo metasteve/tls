@@ -17,97 +17,83 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
   <style include="shared-styles"></style>
   <style>
-.toolbar-tools.paper-toolbar .title{
-  font-size: 110% !important;
-}
-  :host {
-    display: flex;
-    flex-wrap:wrap;
 
+  :host {
+    display: block;
     background: #000;
   }
 
   .tile {
-    /*display: flex;*/
-    /*float: left;*/
-    /*vertical-align: bottom;*/
-    /*width: calc(100% / 6);
-
-    height: calc(100% / 2.99);*/
-    /*max-width: 550px;
-    min-width: 300px;
-    max-height: 300px;*/
-    flex: 25% ;
-
-    /*bottom:0;*/
+    display: block;
+    float: left;
+    vertical-align: bottom;
+    width: calc(100% / 6);
+    height: calc(100% / 2.99);
+    bottom:0;
     /*@apply(--paper-font-title);*/
-    /*@apply(--layout-vertical);*/
+    @apply(--layout-vertical);
     /*@apply(--layout-center-center);*/
   }
 
   .tile:nth-of-type(1) {
-    /*flex: 1 1;*/
-    /*min-width: calc(100% / 2);
-    max-height: 600px;*/
-
-    /*height: calc(100% / 2.999 *2);*/
-    flex: 50% ;
+    width: calc(100% / 3);
+    height: calc(100% / 3 *2);
   }
 
-  .tile:nth-of-type(2) {
-    /*width: calc(100% / 3);*/
-    flex: 50% ;
+  .tile:nth-of-type(4) {
+    width: calc(100% / 3);
   }
 
   .tile:nth-of-type(5) {
-    /*width: calc(100% / 3);
-    height: calc(100% / 2.99);*/
+    width: calc(100% / 3);
+    height: calc(100% / 3);
   }
   .tile:nth-of-type(7) {
-    /*width: calc(100% / 6);
-    height: calc(100% / 2.99);*/
+    width: calc(100% / 6);
+    height: calc(100% / 2.99);
   }
   .tile:nth-of-type(8) {
-    /*width: calc(100% / 1.5);
-    height: calc(100% / 2.99);*/
+    width: calc(100% / 1.5);
+    height: calc(100% / 2.99);
   }
   @media all and (max-width: 1280px) {
 
     .tile {
-      /*display: block;
+      display: block;
       float: left;
       vertical-align: bottom;
       width: calc(100% /6);
       height: calc(100% / 2.99);
       bottom:0;
-      @apply(--layout-vertical);*/
-      flex:50%;
+      /*@apply(--paper-font-title);*/
+      @apply(--layout-vertical);
+      /*@apply(--layout-center-center);*/
     }
 
     .tile:nth-of-type(1) {
-      /*width: calc(100% /2);
-      height: calc(100% / 3 *2);*/
+      width: calc(100% /2);
+      height: calc(100% / 3 *2);
     }
 
     .tile:nth-of-type(4) {
-      /*width: calc(100% / 6);*/
+      width: calc(100% / 6);
     }
 
     .tile:nth-of-type(5) {
-      /*width: calc(100% / 2);
-      height: calc(100% / 3);*/
+      width: calc(100% / 2);
+      height: calc(100% / 3);
     }
     .tile:nth-of-type(7) {
-      /*width: calc(100% / 3);
-      height: calc(100% / 2.99);*/
+      width: calc(100% / 3);
+      height: calc(100% / 2.99);
     }
     .tile:nth-of-type(8) {
-      /*width: calc(100% / 2);
-      height: calc(100% / 2.99);*/
+      width: calc(100% / 2);
+      height: calc(100% / 2.99);
     }
     .tile:nth-of-type(9) {
-      /*width: calc(100% / 2);
-      height: calc(100% / 2.99);*/
+      width: calc(100% / 2);
+      height: calc(100% / 2.99);
     }
   }
 
@@ -117,40 +103,41 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   @media all and (max-width: 1024px) {
 
     .tile {
-      /*display: block;
+      display: block;
       float: left;
       vertical-align: bottom;
       width: calc(100% /2);
       height: calc(100% / 2.99);
       bottom:0;
-      @apply(--layout-vertical);*/
-      flex: 50%;
+      /*@apply(--paper-font-title);*/
+      @apply(--layout-vertical);
+      /*@apply(--layout-center-center);*/
     }
 
     .tile:nth-of-type(1) {
-      /*width: calc(100% /2);
-      height: calc(100% / 3 *2);*/
+      width: calc(100% /2);
+      height: calc(100% / 3 *2);
     }
 
     .tile:nth-of-type(4) {
-      /*width: calc(100%);*/
+      width: calc(100%);
     }
 
     .tile:nth-of-type(5) {
-      /*width: calc(100% / 2);
-      height: calc(100% / 3);*/
+      width: calc(100% / 2);
+      height: calc(100% / 3);
     }
     .tile:nth-of-type(7) {
-      /*width: calc(100% / 2);
-      height: calc(100% / 2.99);*/
+      width: calc(100% / 2);
+      height: calc(100% / 2.99);
     }
     .tile:nth-of-type(8) {
-      /*width: calc(100% / 2);
-      height: calc(100% / 2.99);*/
+      width: calc(100% / 2);
+      height: calc(100% / 2.99);
     }
     .tile:nth-of-type(9) {
-      /*width: calc(100% / 2);
-      height: calc(100% / 2.99);*/
+      width: calc(100% / 2);
+      height: calc(100% / 2.99);
     }
   }
 
@@ -160,130 +147,136 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   @media all and (max-width: 640px) {
 
     .tile {
-      flex: 100%;
-      /*display: block;
+      display: block;
       float: left;
       vertical-align: bottom;
       width: calc(100% );
       height: calc(100% / 2.99);
       bottom:0;
-      @apply(--layout-vertical);*/
+      /*@apply(--paper-font-title);*/
+      @apply(--layout-vertical);
+      /*@apply(--layout-center-center);*/
     }
 
     .tile:nth-of-type(1) {
-      /*width: calc(100% );
-      height: calc(100% / 3 *2);*/
-          flex: 100%;
+      width: calc(100% );
+      height: calc(100% / 3 *2);
     }
 
-    .tile:nth-of-type(2) {
-      /*width: calc(100% / 2);*/
-          flex: 100%;
+    .tile:nth-of-type(4) {
+      width: calc(100% / 2);
     }
 
     .tile:nth-of-type(5) {
-      /*width: calc(100% / 2);
-      height: calc(100% / 3);*/
+      width: calc(100% / 2);
+      height: calc(100% / 3);
     }
     .tile:nth-of-type(7) {
-      /*width: calc(100% / 2);
-      height: calc(100% / 2.99);*/
+      width: calc(100% / 2);
+      height: calc(100% / 2.99);
     }
     .tile:nth-of-type(8) {
-      /*width: calc(100% / 2);
-      height: calc(100% / 2.99);*/
+      width: calc(100% / 2);
+      height: calc(100% / 2.99);
     }
     .tile:nth-of-type(9) {
-      /*width: calc(100% / 2);
-      height: calc(100% / 2.99);*/
+      width: calc(100% / 2);
+      height: calc(100% / 2.99);
     }
-    .tile:nth-of-type(11) {
-      flex:100%;
-      /*width: calc(100% / 2);
-      height: calc(100% / 2.99);*/
+    .tile:nth-of-type(10) {
+      width: calc(100% / 2);
+      height: calc(100% / 2.99);
     }
 }
+
+
+  /*.tile:nth-of-type(9) {
+    position: relative;;
+    top: calc(100% / 3 * 2);
+    left: 0;
+    width: calc(100% / 6);
+    height: calc(100% / 2.99);
+  }
+
+  .tile:nth-of-type(10) {
+    position: relative;;
+    top: calc(100% / 3 * 2);
+    left: calc(100% / 6);;
+    width: calc(100% / 6);
+    height: calc(100% / 2.99);
+  }*/
+
+  .medium-tall{
+    /*width:100%;*/
+    /*vertical-align: bottom;*/
+    /*height:60px;*/
+    opacity: .5;
+    background-color: black;
+    padding-left: 0px;
+    margin-left: 0px;
+    mix-blend-mode: overlay;
+
+
+  }
+  .title{
+    /*margin-left: 10px !important;
+    padding:10px;
+    padding-left: 0px;*/
+  }
+  .top{
+    /*padding-top:16px !important;
+    padding-bottom:16px !important;*/
+
+  }
+
+  .grey {
+    /*-webkit-filter: grayscale(100%);
+    filter: grayscale(100%);*/
+    opacity: .7;
+    mix-blend-mode: soft-light;
+
+  }
+  .topper{
+    padding:20px;
+  }
+  .topInfo{
+    padding:0;
+    position:absolute;
+    width:inherit;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .topInfoText{
+    padding:20px;
+    padding-left: 30px;
+    color: white;
+
+  }
 
   .fit {
     @apply(--layout-fit);
   }
-  .title{
-  }
-
-  .transperant img{
-    opacity: .1;
-  }
-
-
   </style>
 
 
 
-  <!-- {% assign posts = site.posts %}
-  {% for p in posts %}
+
+  <template is="dom-repeat" items="[[config]]">
+
+    <div class$="[[_computeTileClass(item.color)]]">
+
+      <paper-material elevation="1" id="topBar" class="topInfo">
+        <div class="topInfoText">[[item.value]]</div>
+        <div class="topInfoText">[[item.color]]</div>
+      </paper-material>
+
+      <iron-image id="mainPhoto" class="grey" style="width:100%; height:100%; background-color: lightgray;" sizing="cover" preload fade src="[[item.pic1]]"></iron-image>
 
 
-  <paper-card  class="transperant"  heading="{{p.title}}" image="{{p.pic1}}">
-    <div  class="card-content">
-        {{ p.excerpt }}
-    </div>
-
-    <div class$="[[_computeTileClass({{p.color}})]] card-actions">
-      <paper-icon-button icon="favorite" title="Heart" class="pink"></paper-icon-button>
-      <paper-icon-button icon="assignment" title="Assignment" class="pink"></paper-icon-button>
-      <paper-icon-button icon="check-circle" title="Checked" class=$"[[_computeTileClass(item.color)]]"></paper-icon-button>
-      <paper-icon-button icon="create" title="Edit" class="pink" style="margin-left: auto;"></paper-icon-button>
-  </div>
-
-  </paper-card>
-  {% endfor %} -->
-
-
-  <!-- href="{{site.url}}{{ p.url }} -->
-
-  <template is="dom-repeat" items="[[config]]" class="vertical">
-
-
-    <div class$="[[_computeTileClass(item.color)]] vertical flex layout-vertical  ">
-
-
-      <paper-card  class="transperant flex-1 vertical"  heading="[[item.value]]" image="[[item.pic1]]">
-        <div  class="card-content flex">
-            [[item.subTitle]]
-        </div>
-
-        <div class$="[[_computeTileClass(item.color)]] card-actions flex">
-          <paper-icon-button icon="favorite" title="Heart" class="pink"></paper-icon-button>
-          <paper-icon-button icon="assignment" title="Assignment" class="pink"></paper-icon-button>
-          <paper-icon-button icon="check-circle" title="Checked" class=$"[[_computeTileClass(item.color)]]"></paper-icon-button>
-          <paper-icon-button icon="create" title="Edit" class="pink" style="margin-left: auto;"></paper-icon-button>
-
-
-
-
-        </div>
-
-      </paper-card>
 
     </div>
 
   </template>
-
-  <!--
-        <paper-card image="[[item.pic1]]" class$="[[_computeTileClass(item.color)]]">
-      <div class="card-content">[[item.value]]</div>
-    </paper-card> -->
-
-
-
-        <!--
-        <paper-material elevation="1" id="topBar" class="topInfo">
-          <div class="topInfoText">[[item.value]]</div>
-          <div class="topInfoText2">[[item.subTitle]]</div>
-        </paper-material>
-
-        <iron-image id="mainPhoto" class="grey" style="width:100%; height:100%; background-color: lightgray;" sizing="cover" preload fade src="[[item.pic1]]"></iron-image> -->
-
 
 
 
@@ -291,7 +284,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 </template>
 
 </dom-module>
+<paper-material elevation="2"  id="topBar" >
+  <div class="top title">Section 2</div>
+  <paper-icon-button id="backButton" class="giant" icon="expand-less" on-click="_showHome"></paper-icon-button>
 
+
+  <div class="bottom title">This is section 2</div>
+</paper-material>
 <script>
 
 // postArray = [];
@@ -310,12 +309,12 @@ href="{{site.url}}{{ p.url }}
 
 {% endfor %} -->
 
-<!-- <iron-ajax
+<iron-ajax
 auto
 url="site.json"
 handle-as="json"
 last-response="{{jsondata}}">
-</iron-ajax> -->
+</iron-ajax>
 
 
 <script>
@@ -337,9 +336,7 @@ Polymer({
       value: function() {
         return [
           {% assign posts = site.posts %}
-          {% for p in posts %}
-          {value: '{{p.title}}', subTitle:'{{p.subTitle}}',color: '{{p.color}}', pic1: '{{p.pic1}}', id:'{{p.url}}'},
-          {% endfor %}
+          {% for p in posts %}{value: '{{p.title}}', color: '{{p.color}}', pic1: '{{p.pic1}}'},{% endfor %}
         ]
       }
     },

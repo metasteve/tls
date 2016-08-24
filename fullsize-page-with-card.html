@@ -1,7 +1,3 @@
----
-
----
-
 <!--
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
@@ -13,15 +9,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="shared-styles.html">
 
-<!-- <link rel="import" href="[[id]]"> -->
-
-
 <dom-module class="topperID" id="fullsize-page-with-card">
   <template>
-
-
-
-
     <style include="shared-styles"></style>
     <style>
 
@@ -43,10 +32,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        }
        .card {
          position: fixed;
-         top:calc(5% );
-         left:calc(5% );
-          height:  calc(90% );
-         width: calc(90% );
+         top:calc(10% );
+         left:calc(10% );
+          height:  calc(80% );
+         width: calc(80% );
          /*padding:20px;*/
          /*@apply(--layout-vertical);*/
 
@@ -63,23 +52,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <style is="custom-style">
   .big {
-    float:right;
-    margin-right:-20px;
-    margin-top:-20px;
-    --iron-icon-height: 40px;
-    --iron-icon-width: 40px;
+    --iron-icon-height: 132px;
+    --iron-icon-width: 132px;
   }
   </style>
 
   <style is="custom-style">
-
   paper-icon-button.giant {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
 
   }
 
-  .medium-tall2{
+  .medium-tall{
     opacity: .5;
     background-color: black;
 
@@ -99,33 +84,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   opacity: .5;
 }
 
-.border1{
-  width:100%;
-  top:0;
-}
-
-
-
 </style>
-
-
-
-<style is="custom-style">
-
-paper-fab.blue {
-  /*width:200px;*/
-  /*background-color: var(--paper-light-blue-500);*/
-    --paper-fab-background: var(--paper-light-blue-500);
-    --paper-fab-keyboard-focus-background: var(--paper-light-blue-900);
-
-  }
-paper-fab.yellow {
-    --paper-fab-background: var(--paper-yellow-500);
-    --paper-fab-keyboard-focus-background: var(--paper-yellow-900);
-  }
-  </style>
-
-
 
 
 
@@ -134,35 +93,24 @@ paper-fab.yellow {
 
 
     <div id="card" class$="[[_computeCardClass(color)]]">
-      <paper-fab id="backButton" class$="big giant [[_computeButtonBackgroundClass(color)]]" icon="clear" on-click="_showHome"></paper-fab>
 
 
-      <div id="mainPhoto">
-
-    <paper-card  class="border1 transperant flex-1 vertical"  heading="  [[value]]" image="[[pic]]">
-      <div  class="card-content flex">
-        [[color]]
-
-      </div>
-
-      <div class$="[[_computeTileClass(item.color)]] card-actions flex">
-        <paper-icon-button icon="favorite" title="Heart" class="pink"></paper-icon-button>
-        <paper-icon-button icon="assignment" title="Assignment" class="pink"></paper-icon-button>
-        <paper-icon-button icon="check-circle" title="Checked" class=$"[[_computeTileClass(item.color)]]"></paper-icon-button>
-        <paper-icon-button icon="create" title="Edit" class="pink" style="margin-left: auto;"></paper-icon-button>
+      <!-- <iron-image id="mainPhoto" style="width:100%; height:100%;" preload fade sizing="cover" src="http://lorempixel.com/1200/800"></iron-image> -->
+      <paper-toolbar  id="topBar" class="medium-tall">
 
 
+  <div class="top title">[[value]]</div>
+  <paper-icon-button id="backButton" class="giant" icon="chevron-left" on-click="_showHome"></paper-icon-button>
 
-
-      </div>
-
-    </paper-card>
-
-            <!-- <template is="juicy-html" id="loadedContent" content$="{{site.url}}[[_computeURL(id)]]"></template> -->
-      </div>
-
-
+  <div class="bottom title">[[color]]</div>
 </paper-toolbar>
+
+      <iron-image id="mainPhoto" style="width:100%; height:20%; background-color: lightgray;"
+  sizing="cover" preload fade src="http://lorempixel.com/1200/800"></iron-image>
+
+
+
+    </div>
 
   </template>
 
@@ -171,10 +119,7 @@ paper-fab.yellow {
 
 </dom-module>
 
-
-
 <script>
-
 
   Polymer({
 
@@ -230,25 +175,25 @@ paper-fab.yellow {
                 }
               },
               {
-              name: 'fade-in-animation',
-              node: this.$.mainPhoto,
-              timing: {
-                delay: 500, duration: 1500
-              }
-            },
-            {
-            name: 'fade-in-animation0',
-            node: this.$.topBar,
-            timing: {
-            delay: 00, duration: 1000
-            }
-            },
-            {
-            name: 'fade-in-animation',
-            node: this.$.backButton,
-            timing: {
-            delay: 1500, duration: 400
-            }}
+  name: 'fade-in-animation',
+  node: this.$.mainPhoto,
+  timing: {
+    delay: 1200, duration: 1500
+  }
+},
+{
+name: 'fade-in-animation0',
+node: this.$.topBar,
+timing: {
+delay: 00, duration: 1000
+}
+},
+{
+name: 'fade-in-animation',
+node: this.$.backButton,
+timing: {
+delay: 1500, duration: 400
+}}
 
 
           ],
@@ -270,10 +215,7 @@ paper-fab.yellow {
   // this event is fired when the animation finishes
   "ripple-animation": "animationComplete"
 },
-attached: function() {
-  // this.importHref([[id]], function() {})
 
-  },
 animationComplete: function() {
   alert("Hello! I am an alert box!!1");
 },
@@ -285,25 +227,11 @@ animationComplete: function() {
       }
       return cls;
     },
-    _computeURL: function(id) {
-      var cls = [[id]];
-      // if (id) {
-      //   cls += ' ' + color + '-300';
-      // }
-      return cls;
-    },
 
     _computeFixedBackgroundClass: function(color) {
       var cls = 'fixed';
       if (color) {
         cls += ' ' + color + '-100';
-      }
-      return cls;
-    },
-    _computeButtonBackgroundClass: function(color) {
-      var cls = '';
-      if (color) {
-        cls += '' + color + '';
       }
       return cls;
     },
