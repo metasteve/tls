@@ -93,7 +93,50 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
     <div id="card" class$="[[_computeCardClass(color)]]">
+      <app-drawer-layout drawer-width="288px" force-narrow>
+          <!-- navigation drawer for small screen sizes -->
+          <app-drawer id="drawer" swipe-open>
+            <template is="dom-if" if="[[smallScreen]]">
+              <app-toolbar class="profileBar">
+                <img class="profilePic" src="//app-layout-assets.appspot.com/assets/shrine/profile_pic.jpg"  width="30" height="30">
+                <div class="profileName">Stella</div>
+                <paper-icon-button icon="settings"></paper-icon-button>
+              </app-toolbar>
+              <div class="list">
+                <template is="dom-repeat" items="[[sections]]" as="section" initial-count="1">
+                  <a href="#[[section]]" class$="[[_getSectionClass(index, selectedTab)]]">[[section]]</a>
+                </template>
+              </div>
+            </template>
+          </app-drawer>
 
+          <app-header-layout>
+            <!-- main header -->
+            <app-header id="header" effects="waterfall" fixed="[[smallScreen]]" condenses="[[!smallScreen]]" reveals="[[!smallScreen]]">
+              <app-toolbar id="mainToolbar">
+                <div class="navItem leftItem">
+                  <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+                  <a href="#[[sectionData.section]]"><paper-icon-button icon="arrow-back"></paper-icon-button></a>
+                </div>
+                <div class="spacer">
+                  <div class="logo"></div>
+                </div>
+                <div class="navItem">
+                  <paper-icon-button icon="shopping-cart"></paper-icon-button>
+                  <paper-icon-button icon="more-vert"></paper-icon-button>
+                </div>
+              </app-toolbar>
+
+              <template is="dom-if" if="[[_shouldShowTabs(onDetailPage, smallScreen)]]">
+                <paper-tabs fit-container selected="[[selectedTab]]" scrollable autoselect sticky$="[[_shouldShowTabs(onDetailPage, smallScreen)]]">
+                  <template is="dom-repeat" items="[[sections]]" as="section">
+                    <paper-tab link autoselect>
+                      <a href="#[[section]]" class="link" tabindex="">[[section]]</a>
+                    </paper-tab>
+                  </template>
+                </paper-tabs>
+              </template>
+            </app-header>
 
       <!-- <iron-image id="mainPhoto" style="width:100%; height:100%;" preload fade sizing="cover" src="http://lorempixel.com/1200/800"></iron-image> -->
       <paper-toolbar  id="topBar" class="medium-tall">
