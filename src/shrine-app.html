@@ -285,8 +285,37 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </app-header-layout>
     </app-drawer-layout>
 
+
   </template>
 
+  {% assign posts = site.posts %}
+  {% for p in posts %}
+<div class="flex-3">
+    <!-- Accent-colored raised button with ripple -->
+    <paper-card  heading="{{p.title}}" preloadImage="true" fadeImage="true" image="{{site.url}}{{p.testVar}}">
+
+
+
+      <div class="card-content">
+           {{ p.excerpt }}
+         </div>
+
+
+        <div class="card-actions">
+          <paper-icon-button icon="favorite" >
+          Favorite
+        </paper-icon-button>
+        </div>
+
+
+        <div class="card-actions">
+          <a href="{{site.url}}{{ p.url }}"><paper-button raised class="custom indigo">{{p.title}}</paper-button></a>
+        </div>
+
+    </paper-card>
+
+</div>
+  {% endfor %}
   <script>
 
   Polymer({
