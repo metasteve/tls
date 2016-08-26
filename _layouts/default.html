@@ -63,6 +63,19 @@
 
 	<!-- Wide card with share menu button -->
 
+	<body unresolved>
+
+	  <template is="dom-bind">
+
+	    <iron-ajax url="data/items.json" auto last-response="{{items}}"></iron-ajax>
+	    <iron-ajax url="data/featured.json" auto last-response="{{featuredItems}}"></iron-ajax>
+	    <shrine-app items="[[items]]" featured-items="[[featuredItems]]"></shrine-app>
+
+	  </template>
+
+	</body>
+
+
 	<div id="content" class="site-content"> <!-- PAGE CONTENT -->
 	    	<div id="main" role="main" class="container" role="main">
 		      	<div class="flc-toc-tocContainer toc"></div> <!-- Table of Contents DIV -->
