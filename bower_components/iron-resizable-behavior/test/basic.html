@@ -82,7 +82,7 @@ Notes on Polyfill compatibility in tests:
 
     suite('x-resizer-parent', function() {
 
-      test('notify resizables from window', function() {
+      test('notify resizables from window', function(done) {
         var listeners = [
           ListenForResize(testEl.$.parent),
           ListenForResize(testEl.$.child1a),
@@ -91,13 +91,22 @@ Notes on Polyfill compatibility in tests:
           ListenForResize(testEl.$.shadow1d.$.resizable)
         ];
 
-        window.dispatchEvent(new CustomEvent('resize', { bubbles: false }));
-        expect(pendingNotifications).to.be.eql(0);
+        setTimeout(function() {
+          try {
+            window.dispatchEvent(new CustomEvent('resize', { bubbles: false }));
 
-        RemoveListeners(listeners);
+            expect(pendingNotifications).to.be.eql(0);
+
+            RemoveListeners(listeners);
+
+            done();
+          } catch (e) {
+            done(e);
+          }
+        }, 0);
       });
 
-      test('notify resizables from parent', function() {
+      test('notify resizables from parent', function(done) {
         var listeners = [
           ListenForResize(testEl.$.parent),
           ListenForResize(testEl.$.child1a),
@@ -106,33 +115,43 @@ Notes on Polyfill compatibility in tests:
           ListenForResize(testEl.$.shadow1d.$.resizable)
         ];
 
-        testEl.$.parent.notifyResize();
-        expect(pendingNotifications).to.be.eql(0);
-        RemoveListeners(listeners);
+        setTimeout(function() {
+          try {
+            testEl.$.parent.notifyResize();
+            expect(pendingNotifications).to.be.eql(0);
+            RemoveListeners(listeners);
+            done();
+          } catch (e) {
+            done(e);
+          }
+        }, 0);
       });
 
-      test('detach resizables then notify parent', function() {
-        sinon.spy(testEl.$.child1a, 'notifyResize');
-        sinon.spy(testEl.$.shadow1c.$.resizable, 'notifyResize');
-        sinon.spy(testEl.$.child1b, 'notifyResize');
-        sinon.spy(testEl.$.shadow1d.$.resizable, 'notifyResize');
+      test('detach resizables then notify parent', function(done) {
+        var listeners = [
+          ListenForResize(testEl.$.parent),
+          ListenForResize(testEl.$.child1a, false),
+          ListenForResize(testEl.$.child1b),
+          ListenForResize(testEl.$.shadow1c.$.resizable, false),
+          ListenForResize(testEl.$.shadow1d.$.resizable)
+        ];
 
-        var firstElementToRemove = testEl.$.child1a;
-        var firstElementParent = Polymer.dom(firstElementToRemove).parentNode;
-        var secondElementToRemove = testEl.$.shadow1c.$.resizable;
-        var secondElementParent = Polymer.dom(secondElementToRemove).parentNode;
+        var el = Polymer.dom(testEl.root).querySelector('#child1a');
 
-        Polymer.dom(firstElementParent).removeChild(firstElementToRemove);
-        Polymer.dom(secondElementParent).removeChild(secondElementToRemove);
+        el.parentNode.removeChild(el);
+        el = Polymer.dom(testEl.root).querySelector('#shadow1c');
+        el.parentNode.removeChild(el);
 
-        Polymer.dom.flush();
-
-        testEl.$.parent.notifyResize();
-
-        expect(testEl.$.child1a.notifyResize.callCount).to.be.equal(0);
-        expect(testEl.$.shadow1c.$.resizable.notifyResize.callCount).to.be.equal(0);
-        expect(testEl.$.child1b.notifyResize.callCount).to.be.equal(1);
-        expect(testEl.$.shadow1d.$.resizable.notifyResize.callCount).to.be.equal(1);
+        setTimeout(function() {
+          try {
+            testEl.$.parent.notifyResize();
+            expect(pendingNotifications).to.be.eql(0);
+            RemoveListeners(listeners);
+            done();
+          } catch (e) {
+            done(e);
+          }
+        }, 0);
       });
 
       test('detach parent then notify window', function(done) {
@@ -164,7 +183,7 @@ Notes on Polyfill compatibility in tests:
 
     suite('x-resizer-parent-filtered', function() {
 
-      test('notify resizables from window', function() {
+      test('notify resizables from window', function(done) {
         var listeners = [
           ListenForResize(testEl.$.parentFiltered),
           ListenForResize(testEl.$.child2a),
@@ -175,12 +194,19 @@ Notes on Polyfill compatibility in tests:
 
         testEl.$.parentFiltered.active = testEl.$.child2a;
 
-        window.dispatchEvent(new CustomEvent('resize', { bubbles: false }));
-        expect(pendingNotifications).to.be.eql(0);
-        RemoveListeners(listeners);
+        setTimeout(function() {
+          try {
+            window.dispatchEvent(new CustomEvent('resize', { bubbles: false }));
+            expect(pendingNotifications).to.be.eql(0);
+            RemoveListeners(listeners);
+            done();
+          } catch (e) {
+            done(e);
+          }
+        }, 0);
       });
 
-      test('notify resizables from parent', function() {
+      test('notify resizables from parent', function(done) {
         var listeners = [
           ListenForResize(testEl.$.parentFiltered),
           ListenForResize(testEl.$.child2a),
@@ -191,12 +217,19 @@ Notes on Polyfill compatibility in tests:
 
         testEl.$.parentFiltered.active = testEl.$.child2a;
 
-        testEl.$.parentFiltered.notifyResize();
-        expect(pendingNotifications).to.be.eql(0);
-        RemoveListeners(listeners);
+        setTimeout(function() {
+          try {
+            testEl.$.parentFiltered.notifyResize();
+            expect(pendingNotifications).to.be.eql(0);
+            RemoveListeners(listeners);
+            done();
+          } catch (e) {
+            done(e);
+          }
+        }, 0);
       });
 
-      test('detach resizables then notify parent', function() {
+      test('detach resizables then notify parent', function(done) {
         var listeners = [
           ListenForResize(testEl.$.parentFiltered),
           ListenForResize(testEl.$.child2a, false),
@@ -212,9 +245,16 @@ Notes on Polyfill compatibility in tests:
 
         testEl.$.parentFiltered.active = testEl.$.shadow2d.$.resizable;
 
-        testEl.$.parentFiltered.notifyResize();
-        expect(pendingNotifications).to.be.eql(0);
-        RemoveListeners(listeners);
+        setTimeout(function() {
+          try {
+            testEl.$.parentFiltered.notifyResize();
+            expect(pendingNotifications).to.be.eql(0);
+            RemoveListeners(listeners);
+            done();
+          } catch (e) {
+            done(e);
+          }
+        }, 0);
       });
     });
   });
