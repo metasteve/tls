@@ -284,26 +284,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       </app-header-layout>
     </app-drawer-layout>
-    <div class="card-wrapper">
-    <!-- This loops through the paginated posts -->
-    {% for post in paginator.posts %}
 
-      <paper-card class="custom"
-              {% if post.image %}
-                  image="{{ site.baseurl }}/images/posts/{{ post.image }}"
-              {% endif %}>
-        <div class="card-content">
-          <div class="title">{{ post.title }}</div>
-          <div class="subtitle">{{ post.date | date: '%Y %B %-d' }}</div>
-          {{ post.excerpt }}
-        </div>
-        <div class="card-actions">
-          <a href="{{ site.baseurl }}{{ post.url }}"><paper-button>Read More</paper-button></a>
-        </div>
-      </paper-card>
-
-    {% endfor %}
-    </div>
 
   </template>
 
